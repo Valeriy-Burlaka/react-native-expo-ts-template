@@ -2,8 +2,8 @@
   "workbench.colorCustomizations": {
       "titleBar.activeForeground": "#000",
       "titleBar.inactiveForeground": "#000000CC",
-      "titleBar.activeBackground": "#e29251",
-      "titleBar.inactiveBackground": "#e29251"
+      "titleBar.activeBackground": "#51aae2",
+      "titleBar.inactiveBackground": "#51aae2"
   },
   // The number of spaces a tab is equal to. This setting is overridden
   // based on the file contents when `editor.detectIndentation` is true.
