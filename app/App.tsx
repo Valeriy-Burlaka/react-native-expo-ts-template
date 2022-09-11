@@ -1,7 +1,10 @@
 import { registerRootComponent } from 'expo';
 
-import { StatusBar } from 'expo-status-bar';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+
+import { Button } from 'components/Button';
 
 const styles = StyleSheet.create({
   container: {
@@ -13,9 +16,16 @@ const styles = StyleSheet.create({
 });
 
 function App() {
+  const [numClicked, setNumClicked] = useState(0);
+
+  const incrementNumClicked = () => {
+    setNumClicked(numClickedPrev => numClickedPrev + 1);
+  };
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <Text>I was clicked {numClicked} times!</Text>
+      <Button onPress={incrementNumClicked} />
       <StatusBar style="auto" />
     </View>
   );
