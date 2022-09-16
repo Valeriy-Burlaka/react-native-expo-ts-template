@@ -9,11 +9,20 @@ interface Props {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 40,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    maxWidth: '160px',
+    paddingHorizontal: 20,
     paddingVertical: 20,
+    borderRadius: 6,
   },
   text: {
     color: 'black',
+    fontSize: 18,
+    fontWeight: '500',
+    letterSpacing: 1.25,
+    textTransform: 'uppercase',
   },
 });
 
