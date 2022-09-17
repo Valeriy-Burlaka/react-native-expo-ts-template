@@ -1,5 +1,5 @@
 module.exports = {
-  stories: ["../components/**/*.stories.?(ts|tsx|js|jsx)"],
+  stories: ["../app/components/**/*.stories.?(ts|tsx|js|jsx)"],
   addons: [
     "@storybook/addon-ondevice-actions",
     "@storybook/addon-ondevice-backgrounds",

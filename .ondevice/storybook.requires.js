@@ -14,13 +14,23 @@ import "@storybook/addon-ondevice-notes/register";
 
 import { argsEnhancers } from "@storybook/addon-actions/dist/modern/preset/addArgs";
 
+import { decorators, parameters } from "./preview";
+
+if (decorators) {
+  decorators.forEach((decorator) => addDecorator(decorator));
+}
+
+if (parameters) {
+  addParameters(parameters);
+}
+
 // temporary fix for https://github.com/storybookjs/react-native/issues/327 whilst the issue is investigated
 try {
   argsEnhancers.forEach((enhancer) => addArgsEnhancer(enhancer));
 } catch {}
 
 const getStories = () => {
-  return [];
+  return [require("../app/components/Button/Button.stories.tsx")];
 };
 
 configure(getStories, module, false);
