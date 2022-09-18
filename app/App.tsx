@@ -1,10 +1,11 @@
 import { registerRootComponent } from 'expo';
 
 import React, { useState } from 'react';
-import { DevSettings, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 
 import { Button } from 'components/Button';
+import useCachedResources from 'hooks/useCachedResources';
 
 const styles = StyleSheet.create({
   container: {
@@ -16,13 +17,14 @@ const styles = StyleSheet.create({
 });
 
 function App() {
+  const isLoadingComplete = useCachedResources();
   const [numClicked, setNumClicked] = useState(0);
 
   const incrementNumClicked = () => {
     setNumClicked(numClickedPrev => numClickedPrev + 1);
   };
 
-  return (
+  return isLoadingComplete ? (
     <View style={styles.container}>
       <Text>I was clicked {numClicked} times!</Text>
       <Button
@@ -31,7 +33,7 @@ function App() {
       />
       <StatusBar style="auto" />
     </View>
-  );
+  ) : null;
 }
 
 export default registerRootComponent(App);

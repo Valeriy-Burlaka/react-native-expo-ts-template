@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: 'black',
+    fontFamily: 'space-mono',
     fontSize: 18,
     fontWeight: '500',
     letterSpacing: 1.25,
