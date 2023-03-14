@@ -1,11 +1,7 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet, ViewStyle } from 'react-native';
 
-interface Props {
-  backgroundColor?: string;
-  onPress: () => void;
-  text?: string;
-}
+import { type ButtonProps as BaseProps } from './Button';
 
 const styles = StyleSheet.create({
   container: {
@@ -13,7 +9,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     maxHeight: 80,
-    maxWidth: 160,
     paddingHorizontal: 20,
     paddingVertical: 20,
     borderRadius: 6,
@@ -28,11 +23,17 @@ const styles = StyleSheet.create({
   },
 });
 
-export const Button = ({ backgroundColor = 'violet', text = 'click me', onPress, }: Props) => {
+export type Props = {
+  backgroundColor: string;
+  style?: ViewStyle;
+}
+
+export const BaseButton = ({ text, onPress, backgroundColor, style = {}}: BaseProps & Props) => {
   return (
     <TouchableOpacity
       style={{
         ...styles.container,
+        ...style,
         backgroundColor,
       }}
       onPress={onPress}
